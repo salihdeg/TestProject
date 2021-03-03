@@ -4,7 +4,6 @@ using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Core.CrossCuttingConcerns.Caching.Microsoft
@@ -41,7 +40,7 @@ namespace Core.CrossCuttingConcerns.Caching.Microsoft
             _memoryCache.Remove(key);
         }
 
-        public void RemoveByPatter(string pattern)
+        public void RemoveByPattern(string pattern)
         {
             var cacheEntriesCollectionDefinition = typeof(MemoryCache).GetProperty("EntriesCollection", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
             var cacheEntriesCollection = cacheEntriesCollectionDefinition.GetValue(_memoryCache) as dynamic;
